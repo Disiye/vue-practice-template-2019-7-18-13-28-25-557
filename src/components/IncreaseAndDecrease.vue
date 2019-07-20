@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="increase()"> + </button>
+    <button @click="increase"> + </button>
     <input v-model="countNumber">
-    <button @click="decrease()"> - </button>
+    <button @click="decrease"> - </button>
   </div>
 </template>
 
@@ -17,9 +17,11 @@ export default {
   methods:{
     increase(){
       this.countNumber++;
+      this.$emit("increase");
     },
     decrease(){
       this.countNumber--;
+      this.$emit("decrease");
     }
   }
 }
