@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <button @click="increase"> + </button>
-    <input id="input" v-model="inputNumber">
+    <input id="input" v-model="this.$store.state.count">
     <button @click="decrease"> - </button>
   </div>
 </template>
@@ -9,17 +9,16 @@
 <script>
 export default {
   name: 'app',
-  data(){
-    return{
-        inputNumber:0
+  data () {
+    return {
     }
   },
   methods:{
     increase(){
-      this.inputNumber++;
+      this.$store.commit("increment")
     },
     decrease(){
-      this.inputNumber--;
+      this.$store.commit("decrement")
     }
     
   }
